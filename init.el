@@ -358,3 +358,8 @@ the cursor by ARG lines."
     });
 /*]]>*///-->
 </script>")
+
+
+(add-hook 'org-mode-hook
+          (lambda () (linum-mode -1))
+          )
