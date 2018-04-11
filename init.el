@@ -14,7 +14,7 @@
 
 ;; Increase gc-cons-threshold, depending on your system you may set it back to a
 ;; lower value in your dotfile (function `dotspacemacs/user-config')
-
+(setq gc-cons-threshold 100000000)
 (package-initialize)
 
 (setq dotspacemacs-install-packages 'used-but-keep-unused)
