@@ -363,3 +363,8 @@ the cursor by ARG lines."
 (add-hook 'org-mode-hook
           (lambda () (linum-mode -1))
           )
+
+(add-hook 'pdf-view-mode-hook
+          (lambda () (linum-mode -1))
+          )
+
