@@ -154,7 +154,7 @@
 ;;(add-to-list 'load-path "./all-the-icons")
 ;;(require 'all-the-icons)
 
-;;(load-file "c:/Users/yangr/.emacs.d/all-the-icons/all-the-icons.el")
+;;(load-file "/home/ray/.emacs.d/all-the-icons/all-the-icons.el")
 ;;(require 'all-the-icons)
 
 ;; neo tree
@@ -163,15 +163,15 @@
 (global-set-key (kbd "C-c n") 'neotree-toggle)
 ;;(setq neo-theme (if (display-graphic-p) 'icons 'arrow))
 
-(load-file "c:/Users/yangr/.emacs.d/nyan-mode/nyan-mode.el")
+(load-file "/home/ray/.emacs.d/nyan-mode/nyan-mode.el")
 (nyan-mode)
 (nyan-start-animation)
 
-(load-file "c:/Users/yangr/.emacs.d/nyan-mode/pascal-csperr.el")
+(load-file "/home/ray/.emacs.d/nyan-mode/pascal-csperr.el")
 ;;(require 'pascal-csperr)
 (add-hook 'pascal-mode-hook 'opascal-mode)
 
-(load-file "c:/Users/yangr/.emacs.d/nyan-mode/figlet.el")
+(load-file "/home/ray/.emacs.d/nyan-mode/figlet.el")
 ;;()
 
 ;; 改建，用M-f1作为标记
@@ -208,7 +208,7 @@
   (line-end-position))
      (message "killed line")))))
 
-(load-file "c:/Users/yangr/.emacs.d/ace-jump-mode/ace-jump-mode.el")
+(load-file "/home/ray/.emacs.d/ace-jump-mode/ace-jump-mode.el")
 ;; ace jump mode
 (global-set-key (kbd "M-p") 'ace-jump-mode)
 
