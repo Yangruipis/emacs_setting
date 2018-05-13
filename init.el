@@ -39,7 +39,8 @@
 (prefer-coding-system 'cp950)
 (prefer-coding-system 'gb2312)
 (prefer-coding-system 'utf-8-dos)
-
+(setq file-name-coding-system 'utf-8)
+(setq path-name-coding-system 'utf-8)
 
 
 (setq package-archives '(("gnu" . "http://elpa.emacs-china.org/gnu/")
