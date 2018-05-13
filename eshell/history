@@ -1,0 +1,46 @@
+ls
+echo '1'
+exit
+pip install --upgrade "jedi>=0.9.0" "json-rpc>=1.8.1" "service_factory>=0.1.5"
+pip install flake8
+pip install autoflake
+cd ~
+ls
+cd .emacs.d
+ls
+s
+ls
+git init
+git
+python
+ls
+np,
+npm
+ipython
+ipython
+cd ../../cs/datastruct/pascal/
+fpc arraylist.pas
+fpc arraylist.pas
+fpc arraylist.pas
+./arraylist.exe 
+./arraylist.exe 
+fpc arraylist.pas
+fpc arraylist.pas
+ls
+cd ../../cs/datastruct/pascal/
+fpc arraylist.pas
+fpc arraylist.pas
+fpc arraylist.pas
+fpc arraylist.pas
+ls
+fpc arraylist.pas
+arraylist.exe
+./arraylist.exe
+cd ./knn/
+ls
+python mysimpleknn.py 
+exit
+ls
+pip
+exit
+pdf-tools-install

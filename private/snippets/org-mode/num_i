@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: num_i
+# key: i
+# --
+^{(i)} $0

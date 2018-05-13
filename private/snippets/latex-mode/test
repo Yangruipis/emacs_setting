@@ -1,0 +1,11 @@
+# -*- mode: snippet -*-
+# name: test
+# key: test
+# --
+
+\begin{itemize}
+\item[1.] $1
+\item[2.] $2
+\item[3.] $3
+\end{itemize}
+${0: 结束}

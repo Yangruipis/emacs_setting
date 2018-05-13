@@ -1,0 +1,11 @@
+# -*- mode: snippet -*-
+# name: node
+# key: node
+# --
+class Node:
+
+    def __init__(self, value, left=None, right=None):
+        self.value = value
+        self.left = left
+        self.right = right
+$0

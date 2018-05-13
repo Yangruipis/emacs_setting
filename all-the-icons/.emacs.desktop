@@ -1,0 +1,43 @@
+;; -*- mode: emacs-lisp; coding: emacs-mule; -*-
+;; --------------------------------------------------------------------------
+;; Desktop File for Emacs
+;; --------------------------------------------------------------------------
+;; Created Wed Nov 22 23:20:01 2017
+;; Desktop file format version 208
+;; Emacs version 25.3.1
+
+;; Global section:
+(setq desktop-saved-frameset [frameset 1 (23061 38305 958853 900000) (desktop . "208") "yangr@DESKTOP-DA2TA1F" nil nil ((((font-backend uniscribe gdi) (font . "-outline-Consolas-normal-normal-normal-mono-23-*-*-*-c-*-iso8859-1") (border-width . 2) (internal-border-width . 0) (right-divider-width . 0) (bottom-divider-width . 0) (vertical-scroll-bars) (horizontal-scroll-bars) (foreground-color . "#b2b2b2") (background-color . "#292b2e") (mouse-color . "black") (border-color . "black") (screen-gamma) (line-spacing) (left-fringe . 8) (right-fringe . 8) (alpha) (menu-bar-lines . 0) (tool-bar-lines . 0) (height . 40) (title) (icon-type) (auto-raise) (auto-lower) (cursor-type . box) (scroll-bar-width . 0) (scroll-bar-height . 0) (fullscreen . fullboth) (display-type . color) (background-mode . dark) (cursor-color . "SkyBlue2") (environment) (powerline-cache) (eyebrowse-last-slot . 1) (eyebrowse-current-slot . 1) (eyebrowse-window-configs (1 (((min-height . 4) (min-width . 10) (min-height-ignore . 3) (min-width-ignore . 8) (min-height-safe . 1) (min-width-safe . 2) (min-pixel-height . 108) (min-pixel-width . 130) (min-pixel-height-ignore . 81) (min-pixel-width-ignore . 104) (min-pixel-height-safe . 27) (min-pixel-width-safe . 26)) leaf (pixel-width . 1920) (pixel-height . 1053) (total-width . 147) (total-height . 39) (normal-height . 1.0) (normal-width . 1.0) (buffer "arrange.org" (selected . t) (hscroll . 0) (fringes 8 8 nil) (margins 4) (scroll-bars nil 0 t nil 0 t) (vscroll . 0) (dedicated) (point . 1) (start . 1))) "")) (persp) (persp-buffer-predicate-old . spacemacs/useful-buffer-p) (persp-buffer-predicate-generated . "Unprintable entity") (fullscreen-restore) (frameset--id . "2E7F-89D1-BB40-9F5C") (frameset--mini t . t) (width . 146) (modeline . t) (minibuffer . t) (unsplittable) (left . 1920) (top . 0) (icon-name) (visibility . t) (display . "w32") (explicit-name) (tool-bar-position . top)) ((min-height . 4) (min-width . 10) (min-height-ignore . 3) (min-width-ignore . 8) (min-height-safe . 1) (min-width-safe . 2) (min-pixel-height . 108) (min-pixel-width . 130) (min-pixel-height-ignore . 81) (min-pixel-width-ignore . 104) (min-pixel-height-safe . 27) (min-pixel-width-safe . 26)) leaf (pixel-width . 1920) (pixel-height . 1053) (total-width . 147) (total-height . 39) (normal-height . 1.0) (normal-width . 1.0) (buffer "arrange.org" (selected . t) (hscroll . 0) (fringes 8 8 nil) (margins 4) (scroll-bars nil 0 t nil 0 t) (vscroll . 0) (dedicated) (point . 1) (start . 1))))])
+(setq desktop-missing-file-warning nil)
+(setq tags-file-name nil)
+(setq tags-table-list nil)
+(setq search-ring '("line" "line-num" "conso" "add-hook" "pasc" "hook" ".el" ".e;" "cos" "1" ",0" "\",\"" "\".\"" ","))
+(setq regexp-search-ring nil)
+(setq register-alist nil)
+(setq file-name-history '("d:/cygwin64/home/document/mypaper/article/arrange.org" "d:/cygwin64/home/document/mypaper/article/version_1.docx" "d:/cygwin64/home/document/mypaper/arrange.org" "d:/cygwin64/home/document/mypaper/data_handle/Kronecker.py" "~/.emacs.d/init.el" "d:/cygwin64/home/document/mypaper/data_handle/mymatrix.py" "d:/cygwin64/home/document/mypaper/data_handle/matrix_extract.py" "~/.spacemacs" "d:/cygwin64/home/document/mypaper/data_handle/spmat2spwmatrix.py" "d:/cygwin64/home/document/pascal/test/test_class.pas" "d:/cygwin64/home/document/mypaper/README.md" "d:/cygwin64/home/document/pascal/test/tail_recursion.pas" "~/Anaconda3/Lib/site-packages/numpy/core/fromnumeric.py" "d:/cygwin64/home/document/mypaper/test.html" "d:/cygwin64/home/document/mypaper/test.md" "d:/cygwin64/home/document/mypaper/test.py" "~/Anaconda3/Lib/os.py" "~/.emacs.d/.cache/layouts/persp-auto-save" "d:/cygwin64/home/git_update.sh" "d:/cygwin64/home/document/mypaper/arrange.pdf" "d:/cygwin64/home/document/mypaper/arrange.tex" "d:/cygwin64/home/document/mypaper/data_handle/centrality.py" "~/Anaconda3/Lib/site-packages/pandas/core/frame.py" "d:/cygwin64/doc" "d:/cygwin64/home/document/mypaper/data_handle/test.pas" "d:/cygwin64/home/document/mynotes/software/pascal/test.py" "d:/cygwin64/home/document/mynotes/software/pascal/note.org" "d:/cygwin64/home/document/mypaper/command_ref/4ec3a6cb25cb191818c5d65400e6c3697082.pdf"))
+
+;; Buffer section -- buffers listed in same order as in buffer list:
+(desktop-create-buffer 208
+  "d:/cygwin64/home/document/mypaper/article/arrange.org"
+  "arrange.org"
+  'org-mode
+  '(page-break-lines-mode override-global-mode global-auto-revert-mode undo-tree-mode which-key-mode holy-mode anzu-mode evil-escape-mode flx-ido-mode linum-mode persp-mode vi-tilde-fringe-mode volatile-highlights-mode helm-mode hl-todo-mode projectile-mode yas-minor-mode org-indent-mode)
+  1
+  '(1 nil)
+  nil
+  nil
+  '((indicate-empty-lines . t) (indent-tabs-mode) (buffer-file-coding-system . utf-8-dos) (truncate-lines))
+  '((mark-ring (1))))
+
+(desktop-create-buffer 208
+  "d:/cygwin64/home/document/mypaper/data_handle/Kronecker.py"
+  "Kronecker.py"
+  'python-mode
+  '(eldoc-mode override-global-mode global-auto-revert-mode undo-tree-mode which-key-mode holy-mode anzu-mode evil-escape-mode smartparens-mode flx-ido-mode linum-mode persp-mode vi-tilde-fringe-mode volatile-highlights-mode helm-mode hl-todo-mode projectile-mode yas-minor-mode rainbow-delimiters-mode hs-minor-mode highlight-parentheses-mode highlight-numbers-mode auto-highlight-symbol-mode bug-reference-prog-mode goto-address-prog-mode hi-lock-mode anaconda-mode anaconda-eldoc-mode company-mode)
+  547
+  '(547 nil)
+  nil
+  nil
+  '((show-trailing-whitespace . 1) (indicate-empty-lines . t) (tab-width . 4) (indent-tabs-mode) (buffer-file-coding-system . utf-8-dos) (fill-column . 79))
+  '((mark-ring (547 110 1))))
+

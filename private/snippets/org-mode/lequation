@@ -1,0 +1,10 @@
+# -*- mode: snippet -*-
+# name: lequation
+# key: leq
+# --
+\begin{lequation}
+\nonumber
+$1
+\tag{$2}
+\end{lequation}
+$0

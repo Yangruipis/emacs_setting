@@ -1,0 +1,19 @@
+# -*- mode: snippet -*-
+# name: 2fig
+# key: 2fig
+# --
+\begin{figure}[H]
+		\begin{minipage}[t]{0.5\textwidth}
+			\centering
+			\includegraphics[width=2.5in]{$1}
+			\caption{$2}
+			\label{fig:$3}
+		\end{minipage}%
+		\begin{minipage}[t]{0.5\textwidth}
+			\centering
+			\includegraphics[width=2.5in]{$4}
+			\caption{$5}
+			\label{fig:$6}
+		\end{minipage}
+	\end{figure}
+$0

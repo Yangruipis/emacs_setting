@@ -1,0 +1,13 @@
+# -*- mode: snippet -*-
+# name: head2
+# key: head2
+# --
+#+HTML_MATHJAX: align: left indent: 5em tagside: left font: Neo-Euler
+#+LATEX_HEADER: \newenvironment{lequation}{\begin{equation}\large}{\end{equation}}
+#+ATTR_LATEX: :width 5cm :options angle=90
+#+TITLE: $1
+#+AUTHOR: 杨 睿
+#+EMAIL: yangruipis@163.com
+#+KEYWORDS: $2
+#+OPTIONS: H:4 toc:t
+$0

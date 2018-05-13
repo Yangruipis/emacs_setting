@@ -1,0 +1,9 @@
+# -*- mode: snippet -*-
+# name: eqnarray
+# key: eq
+# --
+\begin{eqnarray}
+\nonumber
+$1
+\end{eqnarray}
+$0

@@ -1,0 +1,9 @@
+# -*- mode: snippet -*-
+# name: begin_frame
+# key: bf
+# --
+\begin{frame}
+\frametitle{$1}
+\framesubtitle{$2}
+$0
+\end{frame}
