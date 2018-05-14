@@ -39,6 +39,8 @@
 (prefer-coding-system 'cp950)
 (prefer-coding-system 'gb2312)
 (prefer-coding-system 'utf-8-dos)
+
+;; 解决 linux 中文目录乱码问题
 (setq file-name-coding-system 'utf-8)
 (setq path-name-coding-system 'utf-8)
 
@@ -176,7 +178,7 @@
 ;;()
 
 ;; 改建，用M-f1作为标记
-(global-set-key [M-f1] (quote set-mark-command))
+(global-set-key [M-f3] (quote set-mark-command))
 
 ;; 下方状态栏显示时间
 (setq display-time-24hr-format t)
@@ -368,4 +370,6 @@ the cursor by ARG lines."
 (add-hook 'pdf-view-mode-hook
           (lambda () (linum-mode -1))
           )
+
+(set-foreground-color "white")
 
