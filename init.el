@@ -163,7 +163,10 @@
 ;; neo tree
 (add-to-list 'load-path "./neotree")
 (require 'neotree)
-(global-set-key (kbd "C-c n") 'neotree-toggle)
+(setq neo-smart-open t)
+(setq projectile-switch-project-action 'neotree-projectile-action)
+(global-set-key (kbd "C-c n") 'neotree-projectile-action)
+(global-set-key (kbd "C-c M-n") 'neotree-toggle)
 ;;(setq neo-theme (if (display-graphic-p) 'icons 'arrow))
 
 (load-file "/home/ray/.emacs.d/nyan-mode/nyan-mode.el")
@@ -373,3 +376,26 @@ the cursor by ARG lines."
 
 (set-foreground-color "white")
 
+
+;;  ___ _  _ ___  ___ _  _ _____
+;; |_ _| \| |   \| __| \| |_   _|
+;;  | || .` | |) | _|| .` | | |
+;; |___|_|\_|___/|___|_|\_| |_|
+
+;; indent and unindent
+(defun my-indent-region (N)
+  (interactive "p")
+  (if (use-region-p)
+      (progn (indent-rigidly (region-beginning) (region-end) (* N 4))
+             (setq deactivate-mark nil))
+    (self-insert-command N)))
+
+(defun my-unindent-region (N)
+  (interactive "p")
+  (if (use-region-p)
+      (progn (indent-rigidly (region-beginning) (region-end) (* N -4))
+             (setq deactivate-mark nil))
+    (self-insert-command N)))
+
+(global-set-key (kbd "C-c >") 'my-indent-region)
+(global-set-key (kbd "C-c <") 'my-unindent-region)
