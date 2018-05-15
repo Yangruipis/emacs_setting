@@ -399,3 +399,10 @@ the cursor by ARG lines."
 
 (global-set-key (kbd "C-c >") 'my-indent-region)
 (global-set-key (kbd "C-c <") 'my-unindent-region)
+
+;;              _
+;;  ___ _ _  __| |
+;; / -_) ' \/ _` |
+;; \___|_||_\__,_|
+
+

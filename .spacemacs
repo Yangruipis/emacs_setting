@@ -354,8 +354,16 @@ before packages are loaded. If you are unsure, you should try in setting them in
         '(
           ("w" . "任务安排")
           ("wa" "重要且紧急的任务" tags-todo "+PRIORITY=\"A\"")
-          ("wb" "重要且不紧急的任务" tags-todo "-Weekly-Monthly-Daily+PRIORITY=\"B\"")
+          ("wb" "重要且不紧急的任务" tags-todo "-weekly-monthly-daily+PRIORITY=\"B\"")
           ("wc" "不重要且紧急的任务" tags-todo "+PRIORITY=\"C\"")
+          ("W" "Weekly Review"
+           ((stuck "") ;; review stuck projects as designated by org-stuck-projects
+            (tags-todo "project")
+            (tags-todo "daily")
+            (tags-todo "school")
+            (tags-todo "code")
+            (tags-todo "theory")
+            ))
           ))
   (define-key global-map "\C-ca" 'org-agenda)
 
@@ -401,6 +409,17 @@ before packages are loaded. If you are unsure, you should try in setting them in
   ;; 番茄时钟计时
   (require 'org-pomodoro)
 
+  ;;              _
+  ;;  ___ _ _  __| |
+  ;; / -_) ' \/ _` |
+  ;; \___|_||_\__,_|
+
+
+
+  
+
+
+
   "Configuration function for user code.
 This function is called at the very end of Spacemacs initialization after
 layers configuration.
@@ -433,7 +452,7 @@ before packages are loaded. If you are unsure, you should try in setting them in
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (all-the-icons memoize figlet ghub orgit symon let-alist company-emacs-eclim eclim org-ref key-chord ivy helm-bibtex parsebib biblio biblio-core skewer-mode request-deferred websocket deferred js2-mode simple-httpd ein pdf-tools tablist company-auctex auctex vmd-mode web-mode tagedit slim-mode scss-mode sass-mode pug-mode less-css-mode helm-css-scss haml-mode emmet-mode company-web web-completion-data evil-unimpaired company-anaconda unfill smeargle org-plus-contrib org-pomodoro alert log4e gntp org-download mwim mmm-mode markdown-toc markdown-mode magit-gitflow htmlize helm-gitignore helm-company helm-c-yasnippet gnuplot gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link gh-md fuzzy evil-magit magit magit-popup git-commit with-editor company-statistics company auto-yasnippet yasnippet ac-ispell auto-complete elpy yapfify pyvenv pytest pyenv-mode py-isort pip-requirements live-py-mode hy-mode dash-functional helm-pydoc cython-mode anaconda-mode pythonic ace-jump-mode multiple-cursors nyan-mode ws-butler winum which-key volatile-highlights vi-tilde-fringe uuidgen use-package toc-org spaceline powerline restart-emacs request rainbow-delimiters popwin persp-mode pcre2el paradox spinner org-bullets open-junk-file neotree move-text macrostep lorem-ipsum linum-relative link-hint info+ indent-guide hydra hungry-delete hl-todo highlight-parentheses highlight-numbers parent-mode highlight-indentation hide-comnt help-fns+ helm-themes helm-swoop helm-projectile helm-mode-manager helm-make projectile pkg-info epl helm-flx helm-descbinds helm-ag google-translate golden-ratio flx-ido flx fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state smartparens evil-indent-plus evil-iedit-state iedit evil-exchange evil-escape evil-ediff evil-args evil-anzu anzu evil goto-chg undo-tree eval-sexp-fu highlight elisp-slime-nav dumb-jump f dash s diminish define-word column-enforce-mode clean-aindent-mode bind-map bind-key auto-highlight-symbol auto-compile packed aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line helm avy helm-core popup async))))
+    (ido-vertical-mode all-the-icons memoize figlet ghub orgit symon let-alist company-emacs-eclim eclim org-ref key-chord ivy helm-bibtex parsebib biblio biblio-core skewer-mode request-deferred websocket deferred js2-mode simple-httpd ein pdf-tools tablist company-auctex auctex vmd-mode web-mode tagedit slim-mode scss-mode sass-mode pug-mode less-css-mode helm-css-scss haml-mode emmet-mode company-web web-completion-data evil-unimpaired company-anaconda unfill smeargle org-plus-contrib org-pomodoro alert log4e gntp org-download mwim mmm-mode markdown-toc markdown-mode magit-gitflow htmlize helm-gitignore helm-company helm-c-yasnippet gnuplot gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link gh-md fuzzy evil-magit magit magit-popup git-commit with-editor company-statistics company auto-yasnippet yasnippet ac-ispell auto-complete elpy yapfify pyvenv pytest pyenv-mode py-isort pip-requirements live-py-mode hy-mode dash-functional helm-pydoc cython-mode anaconda-mode pythonic ace-jump-mode multiple-cursors nyan-mode ws-butler winum which-key volatile-highlights vi-tilde-fringe uuidgen use-package toc-org spaceline powerline restart-emacs request rainbow-delimiters popwin persp-mode pcre2el paradox spinner org-bullets open-junk-file neotree move-text macrostep lorem-ipsum linum-relative link-hint info+ indent-guide hydra hungry-delete hl-todo highlight-parentheses highlight-numbers parent-mode highlight-indentation hide-comnt help-fns+ helm-themes helm-swoop helm-projectile helm-mode-manager helm-make projectile pkg-info epl helm-flx helm-descbinds helm-ag google-translate golden-ratio flx-ido flx fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state smartparens evil-indent-plus evil-iedit-state iedit evil-exchange evil-escape evil-ediff evil-args evil-anzu anzu evil goto-chg undo-tree eval-sexp-fu highlight elisp-slime-nav dumb-jump f dash s diminish define-word column-enforce-mode clean-aindent-mode bind-map bind-key auto-highlight-symbol auto-compile packed aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line helm avy helm-core popup async))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
