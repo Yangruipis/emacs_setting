@@ -38,6 +38,7 @@ values."
      ;;        )
      bibtex
      ipython-notebook
+     pdf-tools
      (latex :variables
             latex-build-command "xelatex"
             latex-enable-auto-fill nil
@@ -69,7 +70,7 @@ values."
    ;; wrapped in a layer. If you need some configuration for these
    ;; packages, then consider creating a layer. You can also put the
    ;; configuration in `dotspacemacs/user-config'.
-   dotspacemacs-additional-packages '(symon)
+   dotspacemacs-additional-packages '(ghub all-the-icons org-pomodoro)
    ;; A list of packages that cannot be updated.
    dotspacemacs-frozen-packages '()
    ;; A list of packages that will not be installed and loaded.
@@ -81,7 +82,7 @@ values."
    ;; `used-but-keep-unused' installs only the used packages but won't uninstall
    ;; them if they become unused. `all' installs *all* packages supported by
    ;; Spacemacs and never uninstall them. (default is `used-only')
-   dotspacemacs-install-packages 'used-only))
+   dotspacemacs-install-packages 'used-but-keep-unused))
 
 (defun dotspacemacs/init ()
   "Initialization function.
@@ -152,7 +153,7 @@ values."
                                :size 14.0
                                :weight normal
                                :width normal
-                               :powerline-scale 1.1)
+                               :powerline-scale 1.0)
    ;; The leader key
    dotspacemacs-leader-key "SPC"
    ;; The key used for Emacs commands (M-x) (after pressing on the leader key).
@@ -257,7 +258,7 @@ values."
    ;; If non nil show the color guide hint for transient state keys. (default t)
    dotspacemacs-show-transient-state-color-guide t
    ;; If non nil unicode symbols are displayed in the mode line. (default t)
-   dotspacemacs-mode-line-unicode-symbols t
+   dotspacemacs-mode-line-unicode-symbols nil
    ;; If non nil smooth scrolling (native-scrolling) is enabled. Smooth
    ;; scrolling overrides the default behavior of Emacs which recenters point
    ;; when it reaches the top or bottom of the screen. (default t)
@@ -316,6 +317,8 @@ executes.
  This function is mostly useful for variables that need to be set
 before packages are loaded. If you are unsure, you should try in setting them in
 `dotspacemacs/user-config' first."
+  ;; 防止spacemacs启动速度慢
+  (setq tramp-ssh-controlmaster-options "-o ControlMaster=auto -o ControlPath='tramp.%%C' -o ControlPersist=no")
   )
 
 (defun dotspacemacs/user-config ()
@@ -327,10 +330,77 @@ before packages are loaded. If you are unsure, you should try in setting them in
     (set-fontset-font (frame-parameter nil 'font)
                       charset (font-spec :family "Microsoft YaHei" :size 15.5)))
   (setq latex-enable-auto-fill nil)
-  (require symon)
-  (setq symon-sparkline-type 'symon-sparkline-type-plain)
-  (symon-mode)
+  (add-hook 'org-mode-hook
+            (lambda () (linum-mode -1))
+            )
+  (require 'all-the-icons)
+  (setq neo-theme (if (display-graphic-p) 'icons 'arrow))
+  ;;(require symon)
+  ;;(setq symon-sparkline-type 'symon-sparkline-type-plain)
+  ;;(symon-mode)
   (setq org-bullets-bullet-list '("◉" "○" "▶" "◆"  "▲"))
+
+
+    ;;                    ___ _____ ___
+    ;;  ___ _ _ __ _   / __|_   _|   \
+    ;; / _ \ '_/ _` | | (_ | | | | |) |
+    ;; \___/_| \__, |  \___| |_| |___/
+    ;;         |___/
+
+
+  ;; 自定义 agenda的模板
+  (setq org-agenda-files '("/home/ray/Documents/Data/GTD/"))
+  (setq org-agenda-custom-commands
+        '(
+          ("w" . "任务安排")
+          ("wa" "重要且紧急的任务" tags-todo "+PRIORITY=\"A\"")
+          ("wb" "重要且不紧急的任务" tags-todo "-Weekly-Monthly-Daily+PRIORITY=\"B\"")
+          ("wc" "不重要且紧急的任务" tags-todo "+PRIORITY=\"C\"")
+          ))
+  (define-key global-map "\C-ca" 'org-agenda)
+
+  ;; 自定义capture的模板
+  (defvar org-agenda-dir "" "gtd org files location")
+  (setq-default org-agenda-dir "/home/ray/Documents/Data/GTD/")
+  (setq org-agenda-file-note (expand-file-name "notes.org" org-agenda-dir))
+  (setq org-agenda-file-task (expand-file-name "task.org" org-agenda-dir))
+  (setq org-agenda-file-calendar (expand-file-name "calendar.org" org-agenda-dir))
+  (setq org-agenda-file-finished (expand-file-name "finished.org" org-agenda-dir))
+  (setq org-agenda-file-canceled (expand-file-name "canceled.org" org-agenda-dir))
+
+  (define-key global-map "\C-cc" 'org-capture)
+  (setq org-capture-templates
+        '(
+          ("t" "Todo" entry (file+headline org-agenda-file-task "Work")
+           "* TODO [#B] %?\n  %i\n"
+           :empty-lines 1)
+          ("l" "Tolearn" entry (file+headline org-agenda-file-task "Learning")
+           "* TODO [#B] %?\n  %i\n"
+           :empty-lines 1)
+          ("h" "Toplay" entry (file+headline org-agenda-file-task "Hobbies")
+           "* TODO [#C] %?\n  %i\n"
+           :empty-lines 1)
+          ("o" "Todo_others" entry (file+headline org-agenda-file-task "Others")
+           "* TODO [#C] %?\n  %i\n"
+           :empty-lines 1)
+          ("n" "notes" entry (file+headline org-agenda-file-note "Quick notes")
+           "* %?\n  %i\n %U"
+           :empty-lines 1)
+          ("i" "ideas" entry (file+headline org-agenda-file-note "Quick ideas")
+           "* %?\n  %i\n %U"
+           :empty-lines 1)
+          )
+        )
+
+  ;; 定义转接
+  (define-key global-map "\C-cr" 'org-refile)
+  (setq org-refile-targets  '((org-agenda-file-finished :maxlevel . 1)
+                             (org-agenda-file-canceled :maxlevel . 1)
+                             ))
+
+  ;; 番茄时钟计时
+  (require 'org-pomodoro)
+
   "Configuration function for user code.
 This function is called at the very end of Spacemacs initialization after
 layers configuration.
@@ -363,10 +433,11 @@ before packages are loaded. If you are unsure, you should try in setting them in
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (orgit symon ghub let-alist company-emacs-eclim eclim org-ref key-chord ivy helm-bibtex parsebib biblio biblio-core skewer-mode request-deferred websocket deferred js2-mode simple-httpd ein pdf-tools tablist company-auctex auctex vmd-mode web-mode tagedit slim-mode scss-mode sass-mode pug-mode less-css-mode helm-css-scss haml-mode emmet-mode company-web web-completion-data evil-unimpaired company-anaconda unfill smeargle org-plus-contrib org-pomodoro alert log4e gntp org-download mwim mmm-mode markdown-toc markdown-mode magit-gitflow htmlize helm-gitignore helm-company helm-c-yasnippet gnuplot gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link gh-md fuzzy evil-magit magit magit-popup git-commit with-editor company-statistics company auto-yasnippet yasnippet ac-ispell auto-complete elpy yapfify pyvenv pytest pyenv-mode py-isort pip-requirements live-py-mode hy-mode dash-functional helm-pydoc cython-mode anaconda-mode pythonic ace-jump-mode multiple-cursors nyan-mode ws-butler winum which-key volatile-highlights vi-tilde-fringe uuidgen use-package toc-org spaceline powerline restart-emacs request rainbow-delimiters popwin persp-mode pcre2el paradox spinner org-bullets open-junk-file neotree move-text macrostep lorem-ipsum linum-relative link-hint info+ indent-guide hydra hungry-delete hl-todo highlight-parentheses highlight-numbers parent-mode highlight-indentation hide-comnt help-fns+ helm-themes helm-swoop helm-projectile helm-mode-manager helm-make projectile pkg-info epl helm-flx helm-descbinds helm-ag google-translate golden-ratio flx-ido flx fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state smartparens evil-indent-plus evil-iedit-state iedit evil-exchange evil-escape evil-ediff evil-args evil-anzu anzu evil goto-chg undo-tree eval-sexp-fu highlight elisp-slime-nav dumb-jump f dash s diminish define-word column-enforce-mode clean-aindent-mode bind-map bind-key auto-highlight-symbol auto-compile packed aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line helm avy helm-core popup async))))
+    (all-the-icons memoize figlet ghub orgit symon let-alist company-emacs-eclim eclim org-ref key-chord ivy helm-bibtex parsebib biblio biblio-core skewer-mode request-deferred websocket deferred js2-mode simple-httpd ein pdf-tools tablist company-auctex auctex vmd-mode web-mode tagedit slim-mode scss-mode sass-mode pug-mode less-css-mode helm-css-scss haml-mode emmet-mode company-web web-completion-data evil-unimpaired company-anaconda unfill smeargle org-plus-contrib org-pomodoro alert log4e gntp org-download mwim mmm-mode markdown-toc markdown-mode magit-gitflow htmlize helm-gitignore helm-company helm-c-yasnippet gnuplot gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link gh-md fuzzy evil-magit magit magit-popup git-commit with-editor company-statistics company auto-yasnippet yasnippet ac-ispell auto-complete elpy yapfify pyvenv pytest pyenv-mode py-isort pip-requirements live-py-mode hy-mode dash-functional helm-pydoc cython-mode anaconda-mode pythonic ace-jump-mode multiple-cursors nyan-mode ws-butler winum which-key volatile-highlights vi-tilde-fringe uuidgen use-package toc-org spaceline powerline restart-emacs request rainbow-delimiters popwin persp-mode pcre2el paradox spinner org-bullets open-junk-file neotree move-text macrostep lorem-ipsum linum-relative link-hint info+ indent-guide hydra hungry-delete hl-todo highlight-parentheses highlight-numbers parent-mode highlight-indentation hide-comnt help-fns+ helm-themes helm-swoop helm-projectile helm-mode-manager helm-make projectile pkg-info epl helm-flx helm-descbinds helm-ag google-translate golden-ratio flx-ido flx fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state smartparens evil-indent-plus evil-iedit-state iedit evil-exchange evil-escape evil-ediff evil-args evil-anzu anzu evil goto-chg undo-tree eval-sexp-fu highlight elisp-slime-nav dumb-jump f dash s diminish define-word column-enforce-mode clean-aindent-mode bind-map bind-key auto-highlight-symbol auto-compile packed aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line helm avy helm-core popup async))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  )
+    
