@@ -406,3 +406,7 @@ the cursor by ARG lines."
 ;; \___|_||_\__,_|
 
 
+;; C-backspace 只删除空格，删到上一个单词之后为止，儿 M-backspace 则是删除上一个词
+(global-set-key [C-backspace] 'delete-horizontal-space)
+
+
