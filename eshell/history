@@ -44,3 +44,7 @@ ls
 pip
 exit
 pdf-tools-install
+rm note3.org
+ls
+ls -l
+exit
