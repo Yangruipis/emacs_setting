@@ -48,3 +48,24 @@ rm note3.org
 ls
 ls -l
 exit
+git add .
+git commit -m 'new'
+git push -u origin master
+exit
+git add .
+git commit -m 'test'
+git push -u origin master
+git add .
+git push -u origin master
+git commit -m 'test'
+git push -u origin master
+git push -u origin master
+git add .
+git commit -m 'test'
+git push -u origin master
+git add .
+git commit -m 'test'
+git push -u origin master
+git add .
+git commit -m 'test'
+git push -u origin master
