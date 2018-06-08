@@ -128,7 +128,7 @@
 (org-babel-do-load-languages
  'org-babel-load-languages
  '(
-   (sh . t)
+   (shell . t)
    (python . t)
    ;; (ipython . t)
    (R . t)
@@ -181,7 +181,7 @@
 ;;()
 
 ;; 改建，用M-f1作为标记
-(global-set-key [M-f3] (quote set-mark-command))
+(global-snet-key [M-f3] (quote set-mark-command))
 
 ;; 下方状态栏显示时间
 (setq display-time-24hr-format t)
@@ -375,7 +375,6 @@ the cursor by ARG lines."
 
 (set-foreground-color "white")
 
-
 ;;  ___ _  _ ___  ___ _  _ _____
 ;; |_ _| \| |   \| __| \| |_   _|
 ;;  | || .` | |) | _|| .` | | |
@@ -407,6 +406,7 @@ the cursor by ARG lines."
 
 ;; C-backspace 只删除空格，删到上一个单词之后为止，儿 M-backspace 则是删除上一个词
 (global-set-key [C-backspace] 'delete-horizontal-space)
+
 
 
 ;; 更改pomodoro音量
