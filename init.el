@@ -373,6 +373,8 @@ the cursor by ARG lines."
           (lambda () (linum-mode -1))
           )
 
+(add-hook 'python-mode (lambda () (flymake-mode 1)))
+
 (set-foreground-color "white")
 
 ;;  ___ _  _ ___  ___ _  _ _____
@@ -398,6 +400,7 @@ the cursor by ARG lines."
 (global-set-key (kbd "C-c >") 'my-indent-region)
 (global-set-key (kbd "C-c <") 'my-unindent-region)
 
+
 ;;              _
 ;;  ___ _ _  __| |
 ;; / -_) ' \/ _` |
@@ -415,3 +418,13 @@ the cursor by ARG lines."
 ;; (setq org-pomodoro-long-break-sound-args "-volume 0.7")
 ;; (setq org-pomodoro-short-break-sound-args "-volume 0.7")
 ;; ;; (setq org-pomodoro-ticking-sound-args "-volume 0.3")
+
+
+;; 纵向滑动mode
+(pixel-scroll-mode 1)
+(global-set-key [up] (quote pixel-scroll-up))
+(global-set-key [down] (quote pixel-scroll-down))
+
+
+;; 修改org-latex公式大小 为原来的1.5倍
+(plist-put org-format-latex-options :scale 1.5)
