@@ -181,7 +181,7 @@
 ;;()
 
 ;; 改建，用M-f1作为标记
-(global-snet-key [M-f3] (quote set-mark-command))
+(global-set-key [M-f3] (quote set-mark-command))
 
 ;; 下方状态栏显示时间
 (setq display-time-24hr-format t)
