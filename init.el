@@ -414,9 +414,9 @@ the cursor by ARG lines."
 
 ;; 更改pomodoro音量
 (setq org-pomodoro-audio-player "mplayer")
-(setq org-pomodoro-finished-sound-args "-volume 0.7")
-(setq org-pomodoro-long-break-sound-args "-volume 0.7")
-(setq org-pomodoro-short-break-sound-args "-volume 0.7")
+(setq org-pomodoro-finished-sound-args "-volume 1.0")
+(setq org-pomodoro-long-break-sound-args "-volume 1.0")
+(setq org-pomodoro-short-break-sound-args "-volume 1.0")
 ;; ;; (setq org-pomodoro-ticking-sound-args "-volume 0.3")
 
 
