@@ -69,3 +69,13 @@ git push -u origin master
 git add .
 git commit -m 'test'
 git push -u origin master
+./test.cpp
+ls
+chmod 444 test.cpp
+./test.cpp
+chmod +x test.cpp
+./test.cpp
+chmod 777 test.cpp 
+exit
+./test
+exit
