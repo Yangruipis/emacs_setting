@@ -177,8 +177,14 @@
 ;;(require 'pascal-csperr)
 (add-hook 'pascal-mode-hook 'opascal-mode)
 
+;; 代码生成大文字
 (load-file "/home/ray/.emacs.d/nyan-mode/figlet.el")
 ;;()
+
+;; 中文字数g统计
+(load-file "/home/ray/.emacs.d/mypack/advance-words-count.el")
+(require 'advance-words-count)
+(setq words-count-messages-display 'pos-tip)
 
 ;; 改建，用M-f1作为标记
 (global-set-key [M-f3] (quote set-mark-command))
