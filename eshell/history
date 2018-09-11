@@ -79,3 +79,16 @@ chmod 777 test.cpp
 exit
 ./test
 exit
+cd ../../../
+ls
+cd SUIBEthesis/
+ls
+xelatex main.tex
+ls
+git add .
+git commit -m ':claps: 初版完成'
+git push -u origin master
+git add .
+git push -u origin master
+git commit -m ':clap: 初版完成'
+git push -u origin master
