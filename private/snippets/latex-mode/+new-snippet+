@@ -1,9 +1,171 @@
 # -*- mode: snippet -*-
-# name: begin_frame
-# key: bf
+# name: beamerAAU
+# key: aau
 # --
-\begin{frame}
-\frametitle{$1}
-\framesubtitle{$2}
-$0
+\documentclass[10pt]{beamer}
+\usetheme[
+%%% options passed to the outer theme
+%    progressstyle=fixedCircCnt,   %either fixedCircCnt, movCircCnt, or corner
+%    rotationcw,          % change the rotation direction from counter-clockwise to clockwise
+%    shownavsym          % show the navigation symbols
+shownavsym
+  ]{AAUsimple}
+  
+% If you want to change the colors of the various elements in the theme, edit and uncomment the following lines
+% Change the bar and sidebar colors:
+%\setbeamercolor{AAUsimple}{fg=red!20,bg=red}
+%\setbeamercolor{sidebar}{bg=red!20}
+% Change the color of the structural elements:
+%\setbeamercolor{structure}{fg=red}
+% Change the frame title text color:
+%\setbeamercolor{frametitle}{fg=blue}
+% Change the normal text color background:
+%\setbeamercolor{normal text}{fg=black,bg=gray!10}
+% ... and you can of course change a lot more - see the beamer user manual.
+
+  \useinnertheme{rectangles}
+  
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath}  
+\usepackage{xeCJK}
+\usepackage{booktabs}
+\setCJKmainfont{微软雅黑}
+\usepackage{multirow}
+\usepackage{array}
+\usepackage{subfigure}
+\usepackage{fontspec}  
+\usepackage{graphicx}
+\usepackage{indentfirst}
+\setbeamertemplate{caption}[numbered] % 显示图片编号
+
+\usepackage{adjustbox}
+% Or whatever. Note that the encoding and the font should match. If T1
+% does not look nice, try deleting the line with the fontenc.
+\usepackage{helvet}
+
+% \newtheorem{assumption}{Assumption}
+
+\usepackage{cite}
+\usepackage[round, comma, sort&compress]{natbib}
+\bibliographystyle{plainnat}    % 引用文献格式
+
+
+\usepackage{amsthm}
+\usepackage{xcolor}
+\definecolor{NavyBlue}{RGB}{0,105,168}
+\definecolor{Orange}{RGB}{255, 140, 0}
+\definecolor{mygreen}{RGB}{0 ,206, 209}
+
+\newtheorem*{assumption*}{\assumptionnumber}
+\providecommand{\assumptionnumber}{}
+\makeatletter
+
+% 自定义颜色，用于相关的block
+\setbeamercolor{u_navyblue}{fg=white,bg=NavyBlue}%
+\setbeamercolor{l_navyblue}{fg=black,bg=white}%
+
+\setbeamercolor{u_orange}{fg=white,bg=Orange}%
+\setbeamercolor{l_orange}{fg=black,bg=white}%
+
+\setbeamercolor{u_green}{fg=white,bg=mygreen}%
+\setbeamercolor{l_green}{fg=black,bg=white}%
+
+
+
+  
+\newenvironment{assumption}[2]
+{%
+	\renewcommand{\assumptionnumber}{Assumption #1}%
+	\begin{assumption*}%
+		\protected@edef\@currentlabel{#1-$\mathcal{#2}$}%
+	}
+	{%
+	\end{assumption*}
+}
+
+% colored hyperlinks
+\newcommand{\chref}[2]{%
+  \href{#1}{{\usebeamercolor[bg]{AAUsimple}#2}}%
+}
+
+
+\setbeamertemplate{footline}{%
+	\leavevmode%
+	\hbox{%
+		\begin{beamercolorbox}[wd=.633333\paperwidth,ht=2.25ex,dp=1ex,center]{author in head/foot}%
+			\usebeamerfont{author in head/foot}\insertshortauthor
+		\end{beamercolorbox}%
+		%\begin{beamercolorbox}[wd=.333333\paperwidth,ht=2.25ex,dp=1ex,center]{title in head/foot}%
+		%	\usebeamerfont{title in head/foot}\insertshorttitle
+		%\end{beamercolorbox}%
+		\begin{beamercolorbox}[wd=.333333\paperwidth,ht=2.25ex,dp=1ex,right]{date in head/foot}%
+			\usebeamerfont{date in head/foot}\insertshortdate{}\hspace*{2em}
+			\insertframenumber{} / \inserttotalframenumber\hspace*{2ex}
+		\end{beamercolorbox}}%
+		\vskip0pt%
+	} %页脚显示时间和页数
+
+\AtBeginSection[] { 
+	\begin{frame}
+		\frametitle{Outline} 
+		\tableofcontents[currentsection,hideothersubsections] 
+	\end{frame} 
+	\addtocounter{framenumber}{-1}  %目录页不计算页码
+}
+
+\renewcommand\figurename{图}
+\renewcommand\tablename{表}
+
+\title{$1}
+
+\subtitle{$2}
+
+\date{\today}
+
+\author{
+  杨睿 \ 16260715\\
+  \ \\ 
+  }
+
+\institute
+{% is placed on the bottom of the title page
+  \small{统计与信息学院 $\cdot$ 上海对外经贸大学} \\
+  Shanghai University of International Business and Economics\\
+  数量经济学
+}
+
+\pgfdeclareimage[height=1.5cm]{titlepagelogo}{AAUgraphics/logo2}
+\titlegraphic{
+  \pgfuseimage{titlepagelogo}
+}
+
+\begin{document}
+
+{\aauwavesbg%
+\begin{frame}[plain,noframenumbering]
+  \titlepage
+\end{frame}}
+
+\section{}
+\subsection{}
+\begin{frame}{}
+  \frametitle{}
+  \framesubtitle
+
+
 \end{frame}
+
+% \begin{frame}[allowframebreaks]{参考文献}
+% \bibliography{ref}
+% \end{frame}
+
+
+{\aauwavesbg
+\begin{frame}[plain,noframenumbering]
+  \finalpage{Thank you!}
+\end{frame}}
+%%%%%%%%%%%%%%%%
+
+\end{document}
