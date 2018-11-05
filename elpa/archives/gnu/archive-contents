@@ -389,7 +389,7 @@
 	 ((:keywords "convenience" "languages")
 	  (:url . "https://github.com/joaotavora/eglot"))])
  (el-search .
-	    [(1 7 11)
+	    [(1 7 14)
 	     ((emacs
 	       (25))
 	      (stream
