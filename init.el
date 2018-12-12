@@ -173,6 +173,10 @@
 (nyan-mode)
 (nyan-start-animation)
 
+;; 窗口布局撤销以及重做
+(global-set-key (kbd "C-x p") 'winner-undo)
+(global-set-key (kbd "C-x j") 'winner-redo)
+
 (load-file "/home/ray/.emacs.d/nyan-mode/pascal-csperr.el")
 ;;(require 'pascal-csperr)
 (add-hook 'pascal-mode-hook 'opascal-mode)
