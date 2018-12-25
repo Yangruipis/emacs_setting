@@ -438,3 +438,11 @@ the cursor by ARG lines."
 
 ;; 修改org-latex公式大小 为原来的1.5倍
 (plist-put org-format-latex-options :scale 1.5)
+
+;; 修改markdown-mode中快捷键，使可以在emacs中预览
+;; 依赖： 见emacs_note.md
+;; 最好的方法还是隐藏标记 C-c C-x C-m
+;; 如果代码块高亮有问题，可以使用C-c C-x C-f
+(add-hook 'markdown-mode-hook
+    (lambda () (local-set-key (kbd "C-c C-c") 'markdown-live-preview-mode)))
+

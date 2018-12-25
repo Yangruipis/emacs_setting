@@ -92,3 +92,16 @@ git add .
 git push -u origin master
 git commit -m ':clap: 初版完成'
 git push -u origin master
+markdown
+markdown --help
+markdown -o test.md test.html
+markdown -o test.html test.md
+cat test.html
+cat test.md
+markdown -o test.html test.md
+cat test.html
+markdown_py -o html4 test.md > test.html
+cat test.html
+pandoc -f markdown -t html -s --mathjax --highlight-style pygments test.md
+ls
+cat test.html
