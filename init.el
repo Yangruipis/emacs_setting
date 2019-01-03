@@ -446,3 +446,5 @@ the cursor by ARG lines."
 (add-hook 'markdown-mode-hook
     (lambda () (local-set-key (kbd "C-c C-c") 'markdown-live-preview-mode)))
 
+(global-set-key (kbd "C-x C-b") 'ibuffer)
+(global-set-key [remap list-buffers] 'ibuffer)
